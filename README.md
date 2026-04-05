@@ -4,13 +4,13 @@ Dự án ứng dụng công nghệ Blockchain để giải quyết triệt để
 ### 🏗️ Kiến trúc hệ thống
 Dự án được thiết kế để tối ưu hóa giữa tính bảo mật của Blockchain và trải nghiệm người dùng thân thiện:
 
-Blockchain Layer: Sử dụng ngôn ngữ Solidity để lập trình Smart Contract, triển khai thực tế trên mạng thử nghiệm Ethereum Sepolia.
+- Blockchain Layer: Sử dụng ngôn ngữ Solidity để lập trình Smart Contract, triển khai thực tế trên mạng thử nghiệm Ethereum Sepolia.
 
-Web3 Bridge: Tích hợp thư viện Ethers.js làm cầu nối giữa trình duyệt và ví MetaMask, thực hiện ký giao dịch và tương tác dữ liệu on-chain.
+- Web3 Bridge: Tích hợp thư viện Ethers.js làm cầu nối giữa trình duyệt và ví MetaMask, thực hiện ký giao dịch và tương tác dữ liệu on-chain.
 
-Frontend: Giao diện HTML/CSS/JS thuần, tích hợp API tạo Mã QR động giúp định danh sinh viên ngay tại cổng sự kiện.
+- Frontend: Giao diện HTML/CSS/JS thuần, tích hợp API tạo Mã QR động giúp định danh sinh viên ngay tại cổng sự kiện.
 
-Data Management: Áp dụng cơ chế lưu trữ LocalStorage cho thông tin cá nhân (Tên, MSSV) nhằm tuân thủ quyền riêng tư dữ liệu (Data Privacy) thay vì công khai lên Blockchain.
+- Data Management: Áp dụng cơ chế lưu trữ LocalStorage cho thông tin cá nhân (Tên, MSSV) nhằm tuân thủ quyền riêng tư dữ liệu (Data Privacy) thay vì công khai lên Blockchain.
 
 ### 📝 Thông tin Smart Contract
 Tên NFT: Van Lang Live Concert
@@ -22,13 +22,13 @@ Mạng lưới: Sepolia Testnet
 Contract Address: 0x5a79019A273819757Dbc756C01fD4B4d7842Acd7
 
 ### 🚀 Tính năng chính
-Kết nối ví: Tích hợp MetaMask để xác thực danh tính Web3 nhanh chóng.
+- Kết nối ví: Tích hợp MetaMask để xác thực danh tính Web3 nhanh chóng.
 
-Đúc vé NFT: Mỗi sinh viên chỉ có thể sở hữu vé thông qua xác nhận giao dịch trên Blockchain.
+- Đúc vé NFT: Mỗi sinh viên chỉ có thể sở hữu vé thông qua xác nhận giao dịch trên Blockchain.
 
-Định danh thông minh: Tự động tạo mã QR chứa thông tin cá nhân và bằng chứng giao dịch (TxHash) để soát vé.
+- Định danh thông minh: Tự động tạo mã QR chứa thông tin cá nhân và bằng chứng giao dịch (TxHash) để soát vé.
 
-Quản trị (Admin): Dashboard chuyên dụng giúp Ban tổ chức theo dõi danh sách sinh viên đã nhận vé theo thời gian thực.
+- Quản trị (Admin): Dashboard chuyên dụng giúp Ban tổ chức theo dõi danh sách sinh viên đã nhận vé theo thời gian thực.
 
 ### 💻 Hướng dẫn khởi chạy
 - Chuẩn bị: Cài đặt tiện ích MetaMask trên trình duyệt và nhận ETH thử nghiệm tại các trang Sepolia Faucet.
