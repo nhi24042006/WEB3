@@ -48,4 +48,13 @@ MSSV: 2474802010285
 
 Lớp: 71K30CNTT07 - Khoa Công nghệ Thông tin
 
-Trường: Đại học Văn Lang (VLU)
+Trường: Đại học Văn Lang 
+
+Họ tên: Lê Huỳnh Yến Nhi
+
+MSSV: 2474802010282
+
+Lớp: 71K30CNTT07 - Khoa Công nghệ Thông tin
+
+Trường: Đại học Văn Lang 
+
