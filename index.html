@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đại nhạc hội Văn Lang</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ĐẠI NHẠC HỘI VĂN LANG</h1>
+
+        <button id="connectBtn" onclick="connectWallet()">Kết nối ví MetaMask</button>
+
+        <br><br>
+        <img src="poster.png" alt="Poster Sự kiện" class="poster">
+
+        <h3>Giá vé: 250 000 VND</h3>
+
+        <div id="userInfo" class="user-info-container">
+            <input type="text" id="hoTen" placeholder="Nhập họ và tên" required class="input-field"> <br>
+            <input type="text" id="mssv" placeholder="Nhập MSSV" required class="input-field">
+        </div>
+
+        <button id="buyBtn" onclick="buyTicket()">MUA VÉ NGAY</button>
+
+        <div id="ticketArea" style="display: none;">
+            <h2>Chúc mừng! Bạn đã sở hữu vé Văn Lang Live Concert:</h2>
+            <img src="ticket.png" alt="Vé NFT" class="ticket-img">
+            <br>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

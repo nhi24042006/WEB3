@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Quản lý vé VLU</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        h1 { color: #d32f2f; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f6851b; color: white; }
+        .tx-link { color: #007bff; text-decoration: none; }
+        .tx-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>📋 TRANG QUẢN TRỊ - DANH SÁCH KHÁCH MUA VÉ</h1>
+    <button onclick="window.location.href='index.html'" style="padding: 10px; background: #4CAF50; color: white; border: none; cursor: pointer;">⬅ Quay lại Trang mua vé</button>
+    <button onclick="xoaDuLieu()" style="padding: 10px; background: red; color: white; border: none; cursor: pointer; margin-left: 10px;">🗑️ Xóa sạch dữ liệu</button>
+
+    <table id="tableVe">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Thời gian mua</th>
+                <th>Họ và Tên</th>
+                <th>MSSV</th>
+                <th>Địa chỉ Ví (Người mua)</th>
+                <th>Biên lai Blockchain (TxHash)</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script>
+        function loadDuLieu() {
+            const listVe = JSON.parse(localStorage.getItem("danhSachVeVLU")) || [];
+            const tbody = document.querySelector("#tableVe tbody");
+            tbody.innerHTML = "";
+
+            if (listVe.length === 0) {
+                tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>Chưa có ai mua vé cả!</td></tr>";
+                return;
+            }
+
+            listVe.forEach((ve, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${ve.thoiGian}</td>
+                    <td><b>${ve.ten}</b></td>
+                    <td>${ve.mssv}</td>
+                    <td style="font-family: monospace;">${ve.vi.substring(0,6)}...${ve.vi.slice(-4)}</td>
+                    <td><a class="tx-link" href="https://sepolia.etherscan.io/tx/${ve.txHash}" target="_blank">Xem trên Etherscan</a></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function xoaDuLieu() {
+            if(confirm("Bạn có chắc muốn xóa sạch danh sách này?")) {
+                localStorage.removeItem("danhSachVeVLU");
+                loadDuLieu();
+            }
+        }
+
+        // Tự động load khi mở trang
+        window.onload = loadDuLieu;
+    </script>
+</body>
+</html>
