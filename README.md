@@ -31,15 +31,15 @@ Kết nối ví: Tích hợp MetaMask để xác thực danh tính Web3 nhanh ch
 Quản trị (Admin): Dashboard chuyên dụng giúp Ban tổ chức theo dõi danh sách sinh viên đã nhận vé theo thời gian thực.
 
 ### 💻 Hướng dẫn khởi chạy
-Chuẩn bị: Cài đặt tiện ích MetaMask trên trình duyệt và nhận ETH thử nghiệm tại các trang Sepolia Faucet.
+- Chuẩn bị: Cài đặt tiện ích MetaMask trên trình duyệt và nhận ETH thử nghiệm tại các trang Sepolia Faucet.
 
-Khởi động: Mở file index.html bằng trình duyệt (Khuyên dùng Extension Live Server trên VS Code để ổn định nhất).
+- Khởi động: Mở file index.html bằng trình duyệt (Khuyên dùng Extension Live Server trên VS Code để ổn định nhất).
 
-Thao tác: * Bấm "Kết nối ví MetaMask".
+- Thao tác: Bấm "Kết nối ví MetaMask".
 
-Nhập đầy đủ Họ tên và MSSV.
+- Nhập đầy đủ Họ tên và MSSV.
 
-Bấm "MUA VÉ NGAY" và xác nhận giao dịch trên pop-up của ví.
+- Bấm "MUA VÉ NGAY" và xác nhận giao dịch trên pop-up của ví.
 
 ### 👨‍💻 Tác giả
 
