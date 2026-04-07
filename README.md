@@ -45,7 +45,7 @@ Thao tác:
 
 - Bấm "MUA VÉ NGAY" và xác nhận giao dịch trên pop-up của ví.
 
--- Chờ giao dịch hoàn tất để nhận vé có kèm mã QR xác thực.
+- Chờ giao dịch hoàn tất để nhận vé có kèm mã QR xác thực.
 
 👨‍💻 Tác giả
 Phạm Thị Nhi
