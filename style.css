@@ -45,11 +45,43 @@ button {
     margin-top: 15px;
 }
 
-.ticket-img {
+.ticket-container {
+    position: relative;
+    display: inline-block;
+    margin: 15px auto 0 auto;
     width: 80%;
+    max-width: 500px;
+}
+
+.ticket-img {
+    display: block;
+    width: 100%;
+    height: auto;
     border: 3px solid #ffd700;
     border-radius: 10px;
+}
+
+.web3-qr-code {
+    position: absolute;
+    z-index: 10;
+    top: 25%;
+    right: 0%;
+    width: 15%;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: white;
+    padding: 3px;
+    box-shadow: none;
+}
+.hash-text-display {
+    text-align: center;
+    color: gray;
+    font-size: 14px;
     margin-top: 15px;
+    word-wrap: break-word;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .user-info-container {
