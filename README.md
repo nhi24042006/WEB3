@@ -47,7 +47,8 @@ Thao tác:
 
 - Chờ giao dịch hoàn tất để nhận vé có kèm mã QR xác thực.
 
-👨‍💻 Tác giả
+### 👨‍💻 Tác giả
+
 Phạm Thị Nhi
 
 MSSV: 2474802010285
@@ -55,6 +56,8 @@ MSSV: 2474802010285
 Lớp: 71K30CNTT07 - Khoa Công nghệ Thông tin
 
 Trường: Đại học Văn Lang
+
+---
 
 Lê Huỳnh Yến Nhi
 
