@@ -39,13 +39,13 @@ Chuẩn bị: Cài đặt tiện ích MetaMask trên trình duyệt và nhận E
 
 Thao tác mua vé:
 
-Bấm "Kết nối ví MetaMask".
+- Bấm "Kết nối ví MetaMask".
 
-Nhập đầy đủ Họ tên và MSSV vào form định danh.
+- Nhập đầy đủ Họ tên và MSSV vào form định danh.
 
-Bấm "MUA VÉ NGAY" và xác nhận giao dịch trên pop-up của ví MetaMask.
+- Bấm "MUA VÉ NGAY" và xác nhận giao dịch trên pop-up của ví MetaMask.
 
-Chờ giao dịch hoàn tất để nhận vé có kèm mã QR xác thực và mã TxHash.
+- Chờ giao dịch hoàn tất để nhận vé có kèm mã QR xác thực và mã TxHash.
 
 ### 👨‍💻 Tác giả
 
