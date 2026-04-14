@@ -1,3 +1,15 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyAkFh56giHnJ6lgxOWSniwnrpSVQMIHJqM",
+    authDomain: "vlu-ticket-web3.firebaseapp.com",
+    databaseURL: "https://vlu-ticket-web3-default-rtdb.firebaseio.com", // Dòng quan trọng nhất tui vừa thêm vào đây!
+    projectId: "vlu-ticket-web3",
+    storageBucket: "vlu-ticket-web3.firebasestorage.app",
+    messagingSenderId: "709823671588",
+    appId: "1:709823671588:web:e5c52176e322ab114b17b1"
+};
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
 // 1. Địa chỉ trên mạng Sepolia
 const contractAddress = "0x5a79019A273819757Dbc756C01fD4B4d7842Acd7";
 
@@ -246,7 +258,6 @@ async function buyTicket() {
 
         await tx.wait();
 
-        // 1. Lưu thông tin vé vào LocalStorage
         const ticketData = {
             ten: hoTen,
             mssv: mssv,
@@ -254,12 +265,9 @@ async function buyTicket() {
             txHash: tx.hash,
             thoiGian: new Date().toLocaleString()
         };
+        database.ref('danhSachVe').push(ticketData);
 
-        let listVe = JSON.parse(localStorage.getItem("danhSachVeVLU")) || [];
-        listVe.push(ticketData);
-        localStorage.setItem("danhSachVeVLU", JSON.stringify(listVe));
-
-        // 2. THÊM TÍCH HỢP MÃ QR ĐỘNG
+        // Thêm tích hợp mã QR động
         const qrContent = `https://sepolia.etherscan.io/tx/${tx.hash}`;
         const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrContent)}`;
 

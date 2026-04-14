@@ -12,9 +12,11 @@
         .tx-link { color: #007bff; text-decoration: none; }
         .tx-link:hover { text-decoration: underline; }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-    <h1>📋 TRANG QUẢN TRỊ - DANH SÁCH KHÁCH MUA VÉ</h1>
+    <h1>TRANG QUẢN TRỊ - DANH SÁCH KHÁCH MUA VÉ</h1>
     <button onclick="window.location.href='index.html'" style="padding: 10px; background: #4CAF50; color: white; border: none; cursor: pointer;">⬅ Quay lại Trang mua vé</button>
     <button onclick="xoaDuLieu()" style="padding: 10px; background: red; color: white; border: none; cursor: pointer; margin-left: 10px;">🗑️ Xóa sạch dữ liệu</button>
 
@@ -26,46 +28,69 @@
                 <th>Họ và Tên</th>
                 <th>MSSV</th>
                 <th>Địa chỉ Ví (Người mua)</th>
-                <th>Biên lai Blockchain (TxHash)</th>
+                <th>Biên lai</th>
             </tr>
         </thead>
         <tbody>
-            </tbody>
+            <tr><td colspan='6' style='text-align:center;'>Đang tải dữ liệu từ đám mây...</td></tr>
+        </tbody>
     </table>
 
     <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkFh56giHnJ6lgxOWSniwnrpSVQMIHJqM",
+            authDomain: "vlu-ticket-web3.firebaseapp.com",
+            databaseURL: "https://vlu-ticket-web3-default-rtdb.firebaseio.com",
+            projectId: "vlu-ticket-web3",
+            storageBucket: "vlu-ticket-web3.firebasestorage.app",
+            messagingSenderId: "709823671588",
+            appId: "1:709823671588:web:e5c52176e322ab114b17b1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // LOAD DỮ LIỆU TỪ FIREBASE
         function loadDuLieu() {
-            const listVe = JSON.parse(localStorage.getItem("danhSachVeVLU")) || [];
             const tbody = document.querySelector("#tableVe tbody");
-            tbody.innerHTML = "";
 
-            if (listVe.length === 0) {
-                tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>Chưa có ai mua vé cả!</td></tr>";
-                return;
-            }
+            database.ref('danhSachVe').on('value', (snapshot) => {
+                const data = snapshot.val();
+                tbody.innerHTML = "";
 
-            listVe.forEach((ve, index) => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${ve.thoiGian}</td>
-                    <td><b>${ve.ten}</b></td>
-                    <td>${ve.mssv}</td>
-                    <td style="font-family: monospace;">${ve.vi.substring(0,6)}...${ve.vi.slice(-4)}</td>
-                    <td><a class="tx-link" href="https://sepolia.etherscan.io/tx/${ve.txHash}" target="_blank">Xem trên Etherscan</a></td>
-                `;
-                tbody.appendChild(tr);
+                if (!data) {
+                    tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>Chưa có ai mua vé cả!</td></tr>";
+                    return;
+                }
+
+                let index = 1;
+                for (let key in data) {
+                    const ve = data[key];
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${index++}</td>
+                        <td>${ve.thoiGian}</td>
+                        <td><b>${ve.ten}</b></td>
+                        <td>${ve.mssv}</td>
+                        <td style="font-family: monospace;">${ve.vi.substring(0,6)}...${ve.vi.slice(-4)}</td>
+                        <td><a class="tx-link" href="https://sepolia.etherscan.io/tx/${ve.txHash}" target="_blank">Xem trên Etherscan</a></td>
+                    `;
+                    tbody.appendChild(tr);
+                }
             });
         }
 
         function xoaDuLieu() {
-            if(confirm("Bạn có chắc muốn xóa sạch danh sách này?")) {
-                localStorage.removeItem("danhSachVeVLU");
-                loadDuLieu();
+            if(confirm("Bạn có chắc muốn xóa sạch danh sách này trên Đám mây không?")) {
+                database.ref('danhSachVe').remove()
+                .then(() => {
+                    alert("Đã xóa sạch dữ liệu trên toàn hệ thống!");
+                })
+                .catch((error) => {
+                    alert("Lỗi khi xóa: " + error);
+                });
             }
         }
 
-        // Tự động load khi mở trang
         window.onload = loadDuLieu;
     </script>
 </body>
